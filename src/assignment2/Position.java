@@ -1,4 +1,10 @@
 package assignment2;
+
+import jdk.jshell.spi.ExecutionControlProvider;
+
+import javax.management.loading.ClassLoaderRepository;
+import java.io.PipedOutputStream;
+
 public class Position {
     private int x;
     private int y;
@@ -62,5 +68,30 @@ public class Position {
         } else {
             return ((this.x == ((Position) o).x) && (this.y == ((Position) o).y));
         }
+    }
+    public void printPosition() {
+        System.out.println("X coord :" + this.getX() + " Y coord: " + this.getY());
+    }
+    public static void main(String[] args) {
+        Position origin = new Position(0,0);
+        Position fiveZero = new Position(5,0);
+        Position zeroFive = new Position(0,5);
+        try {
+            Position illegalX = new Position(-1,0);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        try {
+            Position illegalY = new Position(0,-1);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        Position fiveZeroDupe = new Position(fiveZero);
+        origin.printPosition();
+        fiveZero.printPosition();
+        zeroFive.printPosition();
+        fiveZeroDupe.printPosition();
+
+
     }
 }

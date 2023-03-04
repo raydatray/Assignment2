@@ -4,6 +4,7 @@ public class TargetQueue extends MyQueue<Position>{
     private MyStack<String> input;
     public TargetQueue(){
         super();
+        this.input = new MyStack<String>();
     }
     public void clear() { this.input.clear(); super.clear(); }
 
@@ -15,7 +16,6 @@ public class TargetQueue extends MyQueue<Position>{
     //If a , , check if the stack has a digit on the top. Ensure size of stack is exactly 2 ( (digit
     // If not throw an error, else push it on
     //If ), check if top of stack has a digit and is of length 4. Pack the input, send it to position and clear the stack
-
 
     public void addTargets(String inputString){
         for (int i = 0; i < inputString.length(); i++){
@@ -57,5 +57,11 @@ public class TargetQueue extends MyQueue<Position>{
                 throw new IllegalArgumentException("Illegal character found");
             }
         }
+    }
+    public static void main(String[] args) {
+        TargetQueue test = new TargetQueue();
+        String test1 = "(1,2).(3,4).(5,6)";
+        test.addTargets(test1);
+
     }
 }
