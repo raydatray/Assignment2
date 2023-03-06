@@ -16,6 +16,21 @@ public class World {
         this.gameState = GameState.MOVE;
     }
     public void step() {
+        Direction nextDirection;
+        Position nextPosition;
+
+        if(this.moveSet.isEmpty()){
+            this.gameState = GameState.NO_MORE_ACTION;
+            return;
+        }else if (this.gameState != GameState.MOVE || this.gameState != GameState.EAT){
+            return;
+        }else{
+            nextDirection = this.moveSet.dequeue();
+        }
+
+
+        nextPosition = this.caterpillar.getHead()
+
 
     }
     public GameState getState(){ return this.gameState; }

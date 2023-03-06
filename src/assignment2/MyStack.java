@@ -3,7 +3,7 @@ package assignment2;
 public class MyStack<E> {
     //Stack using DLL
     //Put everything in/out thru the first
-    public MyDoublyLinkedList<E> stack; //RETURN THIS TO PRIVATE !!!
+    private MyDoublyLinkedList<E> stack; //RETURN THIS TO PRIVATE !!!
     public MyStack(){
         this.stack = new MyDoublyLinkedList<E>();
     }

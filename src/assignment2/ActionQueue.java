@@ -86,7 +86,6 @@ public class ActionQueue extends MyQueue<Direction>{
                 case 'W' -> super.enqueue(W);
             }
         }
-        super.queue.printList();
     }
     private void testRunner(String[] tests){
         for (String test : tests) {
