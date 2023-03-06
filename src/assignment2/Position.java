@@ -1,10 +1,4 @@
 package assignment2;
-
-import jdk.jshell.spi.ExecutionControlProvider;
-
-import javax.management.loading.ClassLoaderRepository;
-import java.io.PipedOutputStream;
-
 public class Position {
     private int x;
     private int y;
@@ -42,24 +36,22 @@ public class Position {
     }
     public int getX(){ return this.x; }
     public int getY(){ return this.y; }
-    public boolean moveWest(){
+    public void moveWest(){
         if(this.x == 0) {
             throw new IllegalArgumentException("This move is illegal");
         } else {
             this.x--;
-            return true;
         }
     }
-    public boolean moveEast(){ this.x++; return true;}
-    public boolean moveNorth(){
+    public void moveEast(){ this.x++; }
+    public void moveNorth(){
         if(this.y == 0){
             throw new IllegalArgumentException("This move is illegal");
         } else {
             this.y--;
-            return true;
         }
     }
-    public boolean moveSouth(){ this.y++; return true;}
+    public void moveSouth(){ this.y++; }
     public boolean equals(Object o){
         if(o == null) {
             return false;
@@ -69,7 +61,7 @@ public class Position {
             return ((this.x == ((Position) o).x) && (this.y == ((Position) o).y));
         }
     }
-    public void printPosition() {
+    private void printPosition() {
         System.out.println("X coord :" + this.getX() + " Y coord: " + this.getY());
     }
     public static void main(String[] args) {

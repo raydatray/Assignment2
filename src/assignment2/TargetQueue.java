@@ -43,10 +43,16 @@ public class TargetQueue extends MyQueue<Position>{
                     throw new IllegalArgumentException(" '(' found before previous ')' closed");
                 }
             } else if (Character.isDigit(x)) {
-                String top = this.input.peek();
+                String top = null;
                 int length = this.input.getSize();
 
-                if ((top.equals("(") && length == 1) || (top.equals(",") && length == 3)) {
+                try {
+                    top = this.input.peek();
+                } catch (Exception e){
+                    throw new IllegalArgumentException("x");
+                }
+
+                if ((length == 1 && top.equals("(")) || (length == 3 && top.equals(","))) {
                     this.input.push(String.valueOf(x));
                 } else if (isNumeric(top) && (length == 2 || length == 4)){
                     this.input.pop();
@@ -55,8 +61,14 @@ public class TargetQueue extends MyQueue<Position>{
                     throw new IllegalArgumentException("digit provided in illegal position");
                 }
             } else if (x == ',') {
-                String top = this.input.peek();
+                String top = null;
                 int length = this.input.getSize();
+
+                try {
+                    top = this.input.peek();
+                } catch (Exception e){
+                    throw new IllegalArgumentException("x");
+                }
 
                 if (isNumeric(top) && length == 2) {
                     this.input.push(String.valueOf(x));
@@ -64,8 +76,14 @@ public class TargetQueue extends MyQueue<Position>{
                     throw new IllegalArgumentException("',' found before at (digit provided");
                 }
             } else if (x == ')') {
-                String top = this.input.peek();
+                String top = null;
                 int length = this.input.getSize();
+
+                try {
+                    top = this.input.peek();
+                } catch (Exception e){
+                    throw new IllegalArgumentException("x");
+                }
 
                 if (isNumeric(top) && length == 4) {
                     int yCoord = Integer.parseInt(this.input.pop());
@@ -117,7 +135,7 @@ public class TargetQueue extends MyQueue<Position>{
         //String test10 = "(12,8)."; //?
 
         //Illegal parentheses
-        String test11 = "()";
+        String test11 = "3()";
         String test12 = "(1)";
         String test13 = "(1,)";
         String test14 = "(()";

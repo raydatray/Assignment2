@@ -14,7 +14,6 @@ public class MyDoublyLinkedList<E> extends MyLinkedList<E> {
 		this.head = null;
 		this.tail = null;
 	}
-
 	public boolean add(E element) {
 		DNode newNode = new DNode(element);
 		if (this.getSize() == 0 ){
