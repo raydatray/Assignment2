@@ -141,11 +141,14 @@ public class TargetQueue extends MyQueue<Position>{
         String test14 = "(()";
         String test15 = "())";
         String test16 = "(1())";
+        String test17 = "(9,9).(14,7).(10,7).(5,6).(1,9)";
 
         String[] tests1 = {test3,test4,test5,test6,test7,test8,test9};
         String[] tests2 = {test11,test12,test13,test14,test15,test16};
+        String[] tests3 = {test17};
 
-        testRunner(tests2,test);
+        testRunner(tests3,test);
         //test.addTargets(test2);
+
     }
 }

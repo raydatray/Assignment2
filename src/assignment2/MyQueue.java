@@ -3,7 +3,7 @@ package assignment2;
 public class MyQueue<E> {
     //Queue using DLL
     //Enqueue from the back, Dequeue from the front
-    private MyDoublyLinkedList<E> queue; //MAKE THIS PRIVATE AGAIN
+    public MyDoublyLinkedList<E> queue; //MAKE THIS PRIVATE AGAIN
     public MyQueue() {
         this.queue = new MyDoublyLinkedList<E>();
     }

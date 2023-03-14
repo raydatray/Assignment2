@@ -23,7 +23,7 @@ public class ActionQueue extends MyQueue<Direction>{
             char c = inputString.charAt(index);
 
             if(Character.isDigit(c)){
-                if(lastParsed == '[' || lastParsed == ']' || index == 0) {
+                if(lastParsed == '[' || lastParsed == ']' || index == 0 || String.valueOf(lastParsed).matches("[NSEW]")) {
                     int count = 0;
                     while (Character.isDigit(inputString.charAt(index))) {
                         count = 10 * count + (inputString.charAt(index) - '0');
@@ -70,7 +70,7 @@ public class ActionQueue extends MyQueue<Direction>{
                 throw new IllegalArgumentException("Illegal Character found");
             }
         }
-        System.out.println(result); //DELETE THIS
+        // System.out.println(result); //DELETE THIS
 
         char[] decodedString = result.toCharArray();
         Direction N = Direction.NORTH;

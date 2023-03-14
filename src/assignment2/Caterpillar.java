@@ -6,7 +6,6 @@ public class Caterpillar extends MyDoublyLinkedList<Position> {
         Position startPosition = new Position(7, 7);
         super.addLast(startPosition);
     }
-
     public Position getHead() {
         return super.peekFirst();
     }
@@ -18,17 +17,16 @@ public class Caterpillar extends MyDoublyLinkedList<Position> {
             super.addFirst(input);
         }
     }
-    //Immediately adjacent ONLY
-    //FINISH THIS AFTER ED ANSWER!
+    //Immediately orthogonal ONLY
     public void move(Position input) {
         Position currentPosition = super.peekFirst();
-        if() {
-
+        if (super.peekFirst().getDistance(input) != 1) {
+            throw new IllegalArgumentException("Position to be moved to is not immediately orthogonal to head of caterpillar");
         } else {
-            throw new IllegalArgumentException("Position to move to is not adjacent to head of caterpillar")
+            super.addFirst(input);
+            super.removeLast();
         }
     }
-
     public boolean selfCollision(Position input) {
         Iterator<Position> caterpillar = super.iterator();
         while(caterpillar.hasNext()){
